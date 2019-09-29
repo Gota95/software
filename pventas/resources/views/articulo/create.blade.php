@@ -1,4 +1,4 @@
 @extends ('layouts.admin')
 @section ('contenido')
-<h3>  EDIT  </h3> 
+<h3>  Create </h3> 
 @stop

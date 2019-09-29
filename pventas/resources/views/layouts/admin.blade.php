@@ -20,15 +20,15 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          Ventas
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
             <a class="nav-link" href="./dashboard.html">
-              <i class="material-icons">Dashboard</i>
-              <p>Dashboard</p>
+              <i class="material-icons">Categoria</i>
+              <p>Categoria</p>
             </a>
           </li>
           <li class="nav-item ">
