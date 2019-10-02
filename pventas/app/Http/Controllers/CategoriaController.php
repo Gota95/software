@@ -22,7 +22,7 @@ class CategoriaController extends Controller
     {
       if($request)
       {
-        $query=trim($request->get('serchText'));
+        $query=trim($request->get('searchText'));
         $categorias=DB::table('categoria as cat')
         ->select('cat.idcategoria','cat.nombre','cat.descripcion','cat.condicion')
         ->where('cat.nombre','LIKE','%'.$query.'%')

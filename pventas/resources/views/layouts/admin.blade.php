@@ -203,7 +203,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="categoria/">Categoría</a></li>
-                            <li><a href="./layout-one-column.html">One Column</a></li>
+                            <li><a href="articulo/">Articulos</a></li>
                             <li><a href="./layout-two-column.html">Two column</a></li>
                             <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
                             <li><a href="./layout-vertical.html">Vertical</a></li>
