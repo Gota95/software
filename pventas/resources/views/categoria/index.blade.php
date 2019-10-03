@@ -3,11 +3,9 @@
 <div class="row">
   <div class="col-lg-8 col-md-8 col-sm8 col-xs-12">
   <br>
-    <h3>Listado de Categorias <a href="categoria/create">
-    <br>
-    <br>
-    <button>Nuevo</button></a>
-    @include('categoria.search')
+  <h3>Carnet <a href="categoria/create"><button class="btn btn-success">Nuevo</button></a></h3>
+  <br>
+  @include('categoria.search')
   </div>
 </div>
 <div class="container-fluid">
@@ -27,7 +25,7 @@
                   <td>{{$cat->idcategoria}}</td>
                   <td>{{$cat->nombre}}</td>
                   <td>{{$cat->descripcion}}</td>
-              
+
                   <td>
                   <a href=""><button class="btn btn-info"> Editar </button></a>
                   <a href=""><button class="btn btn-danger"> Eliminar </button></a>

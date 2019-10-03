@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Categoria;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\CategoriaController;
+use App\Http\Request\CategoriaFormRequest;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Input;
@@ -53,4 +53,7 @@ class CategoriaController extends Controller
     {
 
     }
+    public function show($id){
+
+  }
 }
