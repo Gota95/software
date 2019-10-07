@@ -27,7 +27,7 @@ class ArticuloController extends Controller
       $query= trim($request->get('searchText'));
       $articulos=DB::table('articulo as art')
       ->join('categoria as cat', 'art.idcategoria','=','cat.idcategoria')->select('art.idarticulo','art.codigo',
-      'art.nombre','art.stock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
+      'art.nombre','art.precio','art.stock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
       ->where('art.nombre','LIKE','%'.$query.'%')
       ->orderBy('art.idarticulo','asc')
       ->paginate(7);
@@ -59,6 +59,7 @@ class ArticuloController extends Controller
       $articulo->idarticulo=$request->get('idarticulo');
       $articulo->codigo=$request->get('codigo');
       $articulo->nombre=$request->get('nombre');
+      $articulo->precio=$request->get('precio');
       $articulo->stock=$request->get('stock');
       $articulo->descripcion=$request->get('descripcion');
       $articulo->estado=$request->get('estado');
@@ -83,7 +84,7 @@ class ArticuloController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
