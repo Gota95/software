@@ -24,6 +24,7 @@ class ArticuloFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'idcategoria'=>'required'
             //
         ];
     }
