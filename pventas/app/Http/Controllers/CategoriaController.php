@@ -8,9 +8,6 @@ use App\Categoria;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\CategoriaFormRequest;
 use App\Http\Controllers\Controller;
-
-
-use Illuminate\Support\Facades\Input;
 use DB;
 
 class CategoriaController extends Controller
@@ -51,13 +48,13 @@ class CategoriaController extends Controller
     public function edit($id)
     {
       return view("categoria.edit",["categoria"=>Categoria::findOrFail($id)]);
- 
+
     }
 
     public function show($id){
 return view("categoria.show",["categoria"=>Categoria::findOrFail($id)]);
     }
-   
+
 
     public function update(CategoriaFormRequest $request, $id)
     {

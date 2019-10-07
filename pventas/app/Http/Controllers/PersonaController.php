@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Persona;
 use App\Http\Requests\PersonaFormRequest;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
 use DB;
 
 class PersonaController extends Controller
@@ -21,7 +20,7 @@ class PersonaController extends Controller
       $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
       if($request){
       $query= trim($request->get('searchText'));
@@ -82,7 +81,7 @@ class PersonaController extends Controller
       'per.dpi','per.direccio','per.telefono','per.email',DB::raw("tp.nombre as tipo"))
       ->where('per.idpersona','=',$id)->first();
 
-      return view("persona.show",["persona"=>$persona]);
+      return view("persona.show",["persona"=>Persona::findOrFail($id)]);
     }
 
     /**
@@ -94,7 +93,7 @@ class PersonaController extends Controller
     public function edit($id)
     {
       $tipos=DB::table('tipo_persona')->get();
-      return view("persona.edit",["tipos"=>$tipos]);
+      return view("persona.edit",["persona"=>Persona::findOrFail($id),"tipos"=>$tipos]);
     }
 
     /**

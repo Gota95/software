@@ -6,8 +6,6 @@ use App\Articulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ArticuloFormRequest;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support;
 use Illuminate\Http\UploadedFile;
 use DB;
 
@@ -70,12 +68,11 @@ class ArticuloController extends Controller
       $file=$request->imagen;
       $file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
       $articulo->imagen=$file->getClientOriginalName();
+      }
       $articulo->idcategoria=$request->get('idcategoria');
-
       $articulo->save();
 
       return Redirect::to('articulo');
-    }
     }
 
     /**
@@ -116,7 +113,6 @@ class ArticuloController extends Controller
     public function update(Request $request, $id)
     {
       $articulo= Articulo::findOrFail($id);
-      $articulo->idarticulo=$request->get('idarticulo');
       $articulo->codigo=$request->get('codigo');
       $articulo->nombre=$request->get('nombre');
       $articulo->precio=$request->get('precio');
@@ -125,7 +121,11 @@ class ArticuloController extends Controller
       $articulo->estado=$request->get('estado');
       $articulo->imagen=$request->get('imagen');
       $articulo->idcategoria=$request->get('idcategoria');
-
+      if($request->hasFile('imagen')){
+      $file=$request->imagen;
+      $file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
+      $articulo->imagen=$file->getClientOriginalName();
+      }
       $articulo->Update();
 
       return Redirect::to('articulo');
