@@ -71,9 +71,8 @@ return view("categoria.show",["categoria"=>Categoria::findOrFail($id)]);
     }
 public function destroy($id)
 {
-$categoria=Categoria::findOrFail($id);
-$categoria->condicion='0';
-$categoria->update();
+$categoria=DB::table('categoria')->Where('idcategoria', '=', $id)->delete();
+
 return Redirect::to ('categoria/');
 }
 
