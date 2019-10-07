@@ -23,6 +23,7 @@ class ArticuloFormRequest extends FormRequest
      */
     public function rules()
     {
+      //reglas
         return [
           'idcategoria',
           'codigo',
