@@ -124,7 +124,7 @@ class ArticuloController extends Controller
       $articulo->imagen=$request->get('imagen');
       $articulo->idcategoria=$request->get('idcategoria');
 
-      $articulo->update();
+      $articulo->Update();
 
       return Redirect::to('articulo');
     }
