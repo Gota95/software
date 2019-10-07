@@ -197,7 +197,7 @@ trait EnumeratesValues
     }
 
     /**
-     * Determine if all items pass the given truth test.
+     * Determine if all items pass the given test.
      *
      * @param  string|callable  $key
      * @param  mixed  $operator

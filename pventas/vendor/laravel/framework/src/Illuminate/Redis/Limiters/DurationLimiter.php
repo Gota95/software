@@ -70,7 +70,7 @@ class DurationLimiter
      *
      * @param  int  $timeout
      * @param  callable|null  $callback
-     * @return mixed
+     * @return bool
      *
      * @throws \Illuminate\Contracts\Redis\LimiterTimeoutException
      */
@@ -87,7 +87,7 @@ class DurationLimiter
         }
 
         if (is_callable($callback)) {
-            return $callback();
+            $callback();
         }
 
         return true;
