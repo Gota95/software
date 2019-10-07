@@ -106,7 +106,6 @@ class PersonaController extends Controller
     public function update(Request $request, $id)
     {
       $persona= Persona::findOrFail($id);
-      $persona->idpersona=$request->get('idpersona');
       $persona->nombre=$request->get('nombre');
       $persona->dpi=$request->get('dpi');
       $persona->direccion=$request->get('direccion');
