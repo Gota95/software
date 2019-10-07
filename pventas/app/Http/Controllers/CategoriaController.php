@@ -51,9 +51,31 @@ class CategoriaController extends Controller
     }
     public function edit($id)
     {
-      return view("categoria.edit");
+      return view("categoria.edit",["categoria"=>Categoria::findOrFail($id)]);
+ 
     }
-    public function show($id){
 
-  }
+    public function show($id){
+return view("categoria.show",["categoria"=>Categoria::findOrFail($id)]);
+    }
+   
+
+    public function update(CategoriaFormRequest $request, $id)
+    {
+      $categoria=Categoria::findOrFail($id);
+      $categoria->nombre=$request->get('nombre');
+      $categoria->nombre=$request->get('Descripcion');
+      $categoria->update();
+      return Redirect::to('categoria/');
+
+
+    }
+public function destroy($id)
+{
+$categoria=Categoria::findOrFail($id);
+$categoria->condicion='0';
+$categoria->update();
+return Redirect::to ('categoria/');
+}
+
 }
