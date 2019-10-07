@@ -1,28 +1,22 @@
 @extends ('layouts.admin')
 @section ('contenido')
-<div class="row">
-  <div class="col-lg-8 col-md-8 col-sm8 col-xs-12">
-  <br>
-    <h3>Listado de Articulos <a href="categoria/create">
-    <br>
-    <br>
-    <button>Nuevo</button></a>
-    @include('articulo.search')
+<br>
+  <div class="col-lg-12">
+  @include('articulo.search')
   </div>
-</div>
-<div class="container-fluid">
-  <div class="col-lg-8 col-lm-12">
+
+  <div class="col-lg-12 col-lm-8">
     <div class="card">
       <div class="card-body">
+      <h3><a href="./create"><button class="btn btn-primary">Nuevo</button></a></h3>
           <div class="table-responsive">
             <table class="table table-striped table-bordered zero-configuration">
               <thead>
                 <th>Id</th>
-                <th>Id Categoria</th>
-                <th>Codigo </th>
                 <th>Nombre </th>
+                <th>Codigo</th>
+                <th>Categoria</th>
                 <th>Stock</th>
-                <th>Descripcion</th>
                 <th>Imagen</th>
                 <th>Estado</th>
                 <th>Opciones</th>
@@ -30,19 +24,23 @@
               @foreach($articulos as $art)
                 <tr>
                   <td>{{$art->idarticulo}}</td>
-                  <td>{{$art->idcategoria}}</td>
-                  <td><{{$art->codigo}}</td>
-                  <td><{{$art->nombre}}</td>
-                  <td><{{$art->descripcion}}</td>
-                  <td><{{$art->imagen}}</td>
-                  <td><{{$art->estado}}</td>
+                  <td>{{$art->nombre}}</td>
+                  <td>{{$art->codigo}}</td>
+                  <td>{{$art->categoria}}</td>
+                  <td>{{$art->stock}}</td>
                   <td>
-                  <a href=""><button class="btn btn-info"> Editar </button></a>
-                  <a href=""><button class="btn btn-danger"> Eliminar </button></a>
+                  <img src="{{asset('imagenes/articulos/'.$art->imagen)}}"alt="{{$art->nombre}}" height="100px" width="100px" class="img-thumbail">
+                  </td>
+                  <td>{{$art->estado}}</td>
+                  <td>
+                  <a href="{{ route('articulo.edit', $art->idarticulo) }}"> <button class="btn btn-info">Editar</button></a>
+                   <a href="" data-target="#modal-delete-{{$art->idarticulo}}" data-toggle="modal">
+                   <button class="btn btn-danger"> Eliminar </button></a>
 
                 </td>
 
                 </tr>
+                @include('articulo.modal')
               @endforeach
             </table>
           </div>
@@ -50,6 +48,6 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 @endsection

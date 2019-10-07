@@ -1,4 +1,14 @@
-@extends ('layouts.admin')
-@section ('contenido')
-<h3>  Search  </h3> 
-@stop
+{!! Form::open(array('url'=>'articulo','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
+
+<div class="form-group">
+  <div class="input-group">
+  <input type="text" class"form-control" name="searchText" placeholder="Buscar..." value="{{$searchText}}">
+
+    <span class="input-gorup-btn">
+
+    <button type="submit" class="btn btn-primary">Buscar  </button>
+    </span>
+  </div>
+</div>
+
+{{Form::close()}}
