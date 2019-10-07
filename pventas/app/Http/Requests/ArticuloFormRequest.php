@@ -23,10 +23,15 @@ class ArticuloFormRequest extends FormRequest
      */
     public function rules()
     {
-      //reglas
         return [
-            'idcategoria'=>'required'
-            //
+          'idcategoria',
+          'codigo',
+          'nombre',
+          'precio',
+          'stock',
+          'descripcion',
+          'imagen',
+          'estado'
         ];
     }
 }
