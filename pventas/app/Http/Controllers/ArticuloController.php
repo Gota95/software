@@ -27,12 +27,12 @@ class ArticuloController extends Controller
       $query= trim($request->get('searchText'));
       $articulos=DB::table('articulo as art')
       ->join('categoria as cat', 'art.idcategoria','=','cat.idcategoria')->select('art.idarticulo','art.codigo',
-      'art.nombre','art.stock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
+      'art.nombre','art.precio','art.stock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
       ->where('art.nombre','LIKE','%'.$query.'%')
       ->orderBy('art.idarticulo','asc')
       ->paginate(7);
 
-      return view('articulo.index',["articulos"=>$articulos,"searchText"=>$query]);
+      return view("articulo.index",["articulos"=>$articulos,"searchText"=>$query]);
       }
     }
 
@@ -59,6 +59,7 @@ class ArticuloController extends Controller
       $articulo->idarticulo=$request->get('idarticulo');
       $articulo->codigo=$request->get('codigo');
       $articulo->nombre=$request->get('nombre');
+      $articulo->precio=$request->get('precio');
       $articulo->stock=$request->get('stock');
       $articulo->descripcion=$request->get('descripcion');
       $articulo->estado=$request->get('estado');
@@ -83,7 +84,12 @@ class ArticuloController extends Controller
      */
     public function show($id)
     {
-        //
+    $articulos=DB::table('articulo as art')
+    ->join('categoria as cat', 'art.idcategoria','=','cat.idcategoria')->select('art.idarticulo','art.codigo',
+    'art.nombre','art.precio','art.stock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
+    ->where('art.idarticulo','=',$id)->first();
+
+    return view("articulo.show",["articulos"=>$articulos]);
     }
 
     /**
@@ -94,7 +100,8 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        //
+      $categorias=DB::table('categoria')->get();
+      return view("articulo.edit",["articulo"=>Articulo::findOrFail($id),"categorias"=>$categorias]);
     }
 
     /**
@@ -106,7 +113,20 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $articulo= Articulo::findOrFail($id);
+      $articulo->idarticulo=$request->get('idarticulo');
+      $articulo->codigo=$request->get('codigo');
+      $articulo->nombre=$request->get('nombre');
+      $articulo->precio=$request->get('precio');
+      $articulo->stock=$request->get('stock');
+      $articulo->descripcion=$request->get('descripcion');
+      $articulo->estado=$request->get('estado');
+      $articulo->imagen=$request->get('imagen');
+      $articulo->idcategoria=$request->get('idcategoria');
+
+      $articulo->Update();
+
+      return Redirect::to('articulo');
     }
 
     /**
@@ -117,6 +137,7 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $articulo = DB::table('articulo')->where('idarticulo', '=',$id)->delete();
+    return Redirect::to('articulo');
     }
 }
