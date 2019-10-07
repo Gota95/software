@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Request\CategoriaFormRequest;
 use App\Http\Controllers\Controller;
 
+
 use Illuminate\Support\Facades\Input;
 use DB;
 
@@ -43,9 +44,7 @@ class CategoriaController extends Controller
       $categoria->nombre=$request->get('nombre');
       $categoria->descripcion=$request->get('descripcion');
       $categoria->condicion=$request->get('condicion');
-
       $categoria->save();
-
       return Redirect::to('categoria/');
 
     }
