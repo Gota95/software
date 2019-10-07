@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Categoria;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Request\CategoriaFormRequest;
+use App\Http\Requests\CategoriaFormRequest;
 use App\Http\Controllers\Controller;
 
 
@@ -43,7 +43,7 @@ class CategoriaController extends Controller
       $categoria->idcategoria=$request->get('idcategoria');
       $categoria->nombre=$request->get('nombre');
       $categoria->descripcion=$request->get('descripcion');
-      $categoria->condicion=$request->get('condicion');
+      $categoria->condicion=1;
       $categoria->save();
       return Redirect::to('categoria/');
 
@@ -63,7 +63,7 @@ return view("categoria.show",["categoria"=>Categoria::findOrFail($id)]);
     {
       $categoria=Categoria::findOrFail($id);
       $categoria->nombre=$request->get('nombre');
-      $categoria->nombre=$request->get('Descripcion');
+      $categoria->descripcion=$request->get('descripcion');
       $categoria->update();
       return Redirect::to('categoria/');
 

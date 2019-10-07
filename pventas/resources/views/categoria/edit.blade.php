@@ -13,8 +13,7 @@
 </ul>
 </div>
 @endif
-
-{!!Form::model($categoria,['method' => 'PATCH','route'=>['categoria.update',$categoria->idcategoria]])!!}
+{!!Form::model($categoria,['method'=>'PATCH','route'=>['categoria.update',$categoria->idcategoria]])!!}
 {{Form::token()}}
 <div class="form-group">
 <label for="nombre">Nombre</label>
