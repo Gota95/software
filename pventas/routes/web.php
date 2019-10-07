@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //RUTA PARA MODULO DE CATEGORIAS
 Route::resource('categoria','CategoriaController');
+

@@ -51,7 +51,7 @@ class CategoriaController extends Controller
     }
     public function edit($id)
     {
-
+      return view("categoria.edit");
     }
     public function show($id){
 
