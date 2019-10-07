@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ArticuloFormRequest;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support;
+use Illuminate\Http\UploadedFile;
 use DB;
 
 class ArticuloController extends Controller
@@ -65,10 +66,10 @@ class ArticuloController extends Controller
       $articulo->descripcion=$request->get('descripcion');
       $articulo->estado=$request->get('estado');
 
-      if(Input::hasFile('imagen')){
-      $file=Input::file('imagen');
+      if($request->hasFile('imagen')){
+      $file=$request->imagen;
       $file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
-      $articulo->imagen=$request->get('imagen');
+      $articulo->imagen=$file->getClientOriginalName();
       $articulo->idcategoria=$request->get('idcategoria');
 
       $articulo->save();
