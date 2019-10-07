@@ -29,7 +29,7 @@
                 <td>{{$art->codigo}}</td>
                 <td>{{$art->nombre}}</td>
                   <td>{{$art->precio}}</td>
-          
+
                   <td>{{$art->stock}}</td>
                   <td>
                   <img src="{{asset('imagenes/articulos/'.$art->imagen)}}"alt="{{$art->nombre}}" height="100px" width="100px" class="img-thumbail">
