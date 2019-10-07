@@ -1,6 +1,6 @@
 <div class="modal fade modal-slide-in-rigth" aria-hidden="true"
-role="dialog" tabindex="-1" id= "modal-delete-{{$art->idarticulo}}">
-{{Form::Open(array('action'=>array('ArticuloController@destroy', $art->idarticulo),'method'=>'delete'))}}
+role="dialog" tabindex="-1" id= "modal-delete-{{$cat->idcategoria}}">
+{{Form::Open(array('action'=>array('CategoriaController@destroy', $cat->idcategoria),'method'=>'delete'))}}
 <div class="modal-dialog">
 <div class="modal-content">
 
@@ -9,12 +9,12 @@ role="dialog" tabindex="-1" id= "modal-delete-{{$art->idarticulo}}">
 <button type="button"class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">x</span>
 </button>
-<h4 class="modal-title"> Eliminar Articulo </h4>
+<h4 class="modal-title"> Eliminar Categoria </h4>
 </div>
 
 
 <div class="modal-body">
-<p> Confirme si dese eliminar el articulo</p>
+<p> Confirme si dese eliminar la categoria</p>
 </div>
 
 <div class="modal-footer">

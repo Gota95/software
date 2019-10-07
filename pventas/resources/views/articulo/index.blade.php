@@ -13,9 +13,10 @@
             <table class="table table-striped table-bordered zero-configuration">
               <thead>
                 <th>Id</th>
-                <th>Nombre </th>
-                <th>Codigo</th>
                 <th>Categoria</th>
+                <th>Codigo</th>
+                <th>Nombre </th>
+                <th>Precio</th>
                 <th>Stock</th>
                 <th>Imagen</th>
                 <th>Estado</th>
@@ -23,10 +24,12 @@
               </thead>
               @foreach($articulos as $art)
                 <tr>
-                  <td>{{$art->idarticulo}}</td>
-                  <td>{{$art->nombre}}</td>
-                  <td>{{$art->codigo}}</td>
-                  <td>{{$art->categoria}}</td>
+                <td>{{$art->idarticulo}}</td>
+                <td>{{$art->categoria}}</td>
+                <td>{{$art->codigo}}</td>
+                <td>{{$art->nombre}}</td>
+                  <td>{{$art->precio}}</td>
+          
                   <td>{{$art->stock}}</td>
                   <td>
                   <img src="{{asset('imagenes/articulos/'.$art->imagen)}}"alt="{{$art->nombre}}" height="100px" width="100px" class="img-thumbail">

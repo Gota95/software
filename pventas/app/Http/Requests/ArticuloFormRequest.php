@@ -25,14 +25,8 @@ class ArticuloFormRequest extends FormRequest
     {
       //reglas
         return [
-          'idcategoria',
-          'codigo',
-          'nombre',
-          'precio',
-          'stock',
-          'descripcion',
-          'imagen',
-          'estado'
+            'idcategoria'=>'required'
+            //
         ];
     }
 }
