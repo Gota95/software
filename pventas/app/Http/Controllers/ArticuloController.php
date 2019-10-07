@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Articulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ArticuloFormRequest;
+use Illuminate\Support\Facades\Input;
+use DB;
 
 class ArticuloController extends Controller
 {
@@ -22,7 +27,7 @@ class ArticuloController extends Controller
       $query= trim($request->get('searchText'));
       $articulos=DB::table('articulo as art')
       ->join('categoria as cat', 'art.idcategoria','=','cat.idcategoria')->select('art.idarticulo','art.codigo',
-      'art.nombre','art.strock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
+      'art.nombre','art.stock','art.descripcion','art.imagen','art.estado',DB::raw("cat.nombre as categoria"))
       ->where('art.nombre','LIKE','%'.$query.'%')
       ->orderBy('art.idarticulo','asc')
       ->paginate(7);
@@ -38,7 +43,8 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        //
+      $categorias=DB::table('categoria')->get();
+      return view("articulo.create",["categorias"=>$categorias]);
     }
 
     /**
@@ -49,7 +55,24 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $articulo= new Articulo;
+      $articulo->idarticulo=$request->get('idarticulo');
+      $articulo->codigo=$request->get('codigo');
+      $articulo->nombre=$request->get('nombre');
+      $articulo->stock=$request->get('stock');
+      $articulo->descripcion=$request->get('descripcion');
+      $articulo->estado=$request->get('estado');
+
+      if(Input::hasFile('imagen')){
+      $file=Input::file('imagen');
+      $file->move(public_path().'/imagenes/articulos/',$file->getClientOriginalName());
+      $articulo->imagen=$request->get('imagen');
+      $articulo->idcategoria=$request->get('idcategoria');
+
+      $articulo->save();
+
+      return Redirect::to('articulo');
+    }
     }
 
     /**
