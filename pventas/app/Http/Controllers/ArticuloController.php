@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ArticuloFormRequest;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support;
 use DB;
 
 class ArticuloController extends Controller
