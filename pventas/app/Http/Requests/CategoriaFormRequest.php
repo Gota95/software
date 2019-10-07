@@ -27,6 +27,7 @@ class CategoriaFormRequest extends FormRequest
           'idcategoria',
           'codigo',
           'nombre',
+          'precio',
           'stock',
           'descripcion',
           'imagen'=>'mimes:jpg,bmp,png',
