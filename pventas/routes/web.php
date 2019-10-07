@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//RUTA PARA MODULO DE CATEGORIAS
+//RUTA PARA MODULO DE PRODUCTO
 Route::resource('categoria','CategoriaController');
-
+Route::resource('articulo','ArticuloController');
