@@ -15,6 +15,7 @@
                 <th>Id</th>
                 <th>Nombre </th>
                 <th>Codigo</th>
+                <th>Precio</th>
                 <th>Categoria</th>
                 <th>Stock</th>
                 <th>Imagen</th>
@@ -26,6 +27,7 @@
                   <td>{{$art->idarticulo}}</td>
                   <td>{{$art->nombre}}</td>
                   <td>{{$art->codigo}}</td>
+                  <td>{{$art->precio}}</td>
                   <td>{{$art->categoria}}</td>
                   <td>{{$art->stock}}</td>
                   <td>
