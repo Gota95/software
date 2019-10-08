@@ -77,17 +77,28 @@
 </div>
 
 
+
+
+
+
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 <div class="form-group">
 <label for="estado">Estado</label>
 <input type="text" name="estado" class="form-control"value="{{$articulo->estado}}">
 </div>
 </div>
+<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+<div class="form-group">
 
+@if (($articulo->imagen)!="")
+<img src="{{asset('imagenes/articulos/'.$articulo->imagen)}}" height="150px" width="150px">
+@endif
+
+</div>
+</div>
 
 </div>
 
-<br>
 <div class="form-group">
 <button class="btn btn-primary" type="submit"> Guardar </button>
 <button class="btn btn-danger" type="reset"> Cancelar </button>
