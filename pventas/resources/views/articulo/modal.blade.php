@@ -6,15 +6,16 @@ role="dialog" tabindex="-1" id= "modal-delete-{{$art->idarticulo}}">
 
 
 <div class="modal-header">
+
+<h4 class="modal-title"> Eliminar Articulo </h4>
 <button type="button"class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">x</span>
 </button>
-<h4 class="modal-title"> Eliminar Articulo </h4>
 </div>
 
 
 <div class="modal-body">
-<p> Confirme si dese eliminarel Articulo </p>
+<p> Confirme si desea eliminar el Articulo </p>
 </div>
 
 <div class="modal-footer">

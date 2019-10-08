@@ -1,6 +1,9 @@
 @extends ('layouts.admin')
 @section ('contenido')
+
+
 <div class="row">
+
 <div class="col-lg-8 col-md-6 col-xs-12">
 <h3>Nueva Categoria</h3>
 
@@ -36,6 +39,7 @@
 {!!Form::close()!!}
 
 </div>
+
 </div>
 
 @endsection

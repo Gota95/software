@@ -6,15 +6,16 @@ role="dialog" tabindex="-1" id= "modal-delete-{{$cat->idcategoria}}">
 
 
 <div class="modal-header">
+
+<h4 class="modal-title"> Eliminar Categoria </h4>
 <button type="button"class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">x</span>
 </button>
-<h4 class="modal-title"> Eliminar Categoria </h4>
 </div>
 
 
 <div class="modal-body">
-<p> Confirme si dese eliminar la categoria</p>
+<p> Confirme si desea eliminar la Categoria </p>
 </div>
 
 <div class="modal-footer">

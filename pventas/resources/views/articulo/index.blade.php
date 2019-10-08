@@ -17,7 +17,7 @@
                 <th>Codigo</th>
                 <th>Nombre </th>
                 <th>Precio</th>
-                <th>Stock</th>
+                <th>Cantidad Disponible</th>
                 <th>Imagen</th>
                 <th>Estado</th>
                 <th>Opciones</th>
@@ -28,7 +28,7 @@
                 <td>{{$art->categoria}}</td>
                 <td>{{$art->codigo}}</td>
                 <td>{{$art->nombre}}</td>
-                  <td>{{$art->precio}}</td>
+                  <td>Q.{{$art->precio}}</td>
 
                   <td>{{$art->stock}}</td>
                   <td>
