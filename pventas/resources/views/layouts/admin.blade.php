@@ -104,7 +104,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="./index.html">Usuarios</a></li>
-                            <li><a href="./index.html">Persona</a></li>
+                            <li><a href="/persona">Persona</a></li>
                             <li><a href="/tipo">Tipo de persona</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>

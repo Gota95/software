@@ -26,7 +26,7 @@ class PersonaController extends Controller
       $query= trim($request->get('searchText'));
       $personas=DB::table('persona as per')
       ->join('tipo_persona as tp', 'per.idtipopersona','=','tp.idtipo')->select('per.idpersona','per.nombre',
-      'per.dpi','per.direccio','per.telefono','per.email',DB::raw("tp.nombre as tipo"))
+      'per.dpi','per.direccion','per.telefono','per.email',DB::raw("tp.nombre as tipo"))
       ->where('per.nombre','LIKE','%'.$query.'%')
       ->orderBy('per.nombre','asc')
       ->paginate(7);
@@ -78,7 +78,7 @@ class PersonaController extends Controller
     {
       $persona=DB::table('persona as per')
       ->join('tipo_persona as tp', 'per.idtipopersona','=','tp.idtipo')->select('per.idpersona','per.nombre',
-      'per.dpi','per.direccio','per.telefono','per.email',DB::raw("tp.nombre as tipo"))
+      'per.dpi','per.direccion','per.telefono','per.email',DB::raw("tp.nombre as tipo"))
       ->where('per.idpersona','=',$id)->first();
 
       return view("persona.show",["persona"=>Persona::findOrFail($id)]);
