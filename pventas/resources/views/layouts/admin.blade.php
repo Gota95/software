@@ -105,7 +105,7 @@
                         <ul aria-expanded="false">
                             <li><a href="./index.html">Usuarios</a></li>
                             <li><a href="./index.html">Persona</a></li>
-                            <li><a href="./index.html">Tipo de persona</a></li>
+                            <li><a href="/tipo">Tipo de persona</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
@@ -172,7 +172,7 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-        <section class="py-5 bg-image-full" style="background-image: url('https://www.tusclicks.cl/blog/wp-content/uploads/2017/02/fondo-amarillo-uai-533x300.jpg');">
+        <section class="py-5 bg-image-full" style="background-image: url('');">
 
 
             <!-- row -->
