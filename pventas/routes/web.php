@@ -24,3 +24,4 @@ Route::resource('categoria','CategoriaController');
 Route::resource('articulo','ArticuloController');
 Route::resource('tipo','TipoController');
 Route::resource('persona','PersonaController');
+Route::resource('venta','VentaController');

@@ -135,7 +135,7 @@
                             <i class="icon-basket "></i><span class="nav-text">Ventas</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Venta</a></li>
+                            <li><a href="/venta">Venta</a></li>
                             <li><a href="./app-calender.html">Detalle Venta</a></li>
                         </ul>
                     </li>
