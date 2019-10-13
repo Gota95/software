@@ -50,7 +50,7 @@ class VentaController extends Controller
     {
 
       $personas=DB::table('persona as per')
-      ->join('tipo_persona as tp','per.idtipo','=','tp.idtipo')
+      ->join('tipo_persona as tp','per.idtipopersona','=','tp.idtipo')
       ->where('tp.nombre','=','Cliente')->get();
       $articulos=DB::table('articulo as art')
       ->select(DB::raw('CONCAT(art.codigo,"",art.nombre) AS articulo'),
