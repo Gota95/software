@@ -19,14 +19,12 @@
 
 <div class="row">
 
-<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-
+<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
 <div class="form-group">
 <label for="fecha_hora">Fecha</label>
 <input type="date" name="fecha_hora" class="form-control" placeholder="fecha">
 </div>
 </div>
-
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 <div class="form-group">
 <label>Cliente</label>
@@ -37,11 +35,17 @@
 </select>
 </div>
 </div>
-<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+
+
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 
 <div class="form-group">
-<label for="num_comprobante">No. Comprobante</label>
-<input type="text" name="num_comprobante" class="form-control" placeholder="num_comprobante">
+<label>Tipo Comprobante </label>
+<select  name="tipo_comprobante" class="form-control">
+<option value="Boleta">Boleta</option>
+<option value="Factura">Factura</option>
+<option value="Ticket">Ticker </option>
+</select>
 </div>
 </div>
 
