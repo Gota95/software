@@ -28,7 +28,7 @@ class VentaController extends Controller
         ->join('persona as per','ven.idcliente','=','per.idpersona')
         ->join('detalle_venta as dv','ven.idventa','=','dv.idventa')
         ->select('ven.idventa','ven.tipo_comprobante',
-        'ven.serie_comprobante','num_comprobante',
+        'ven.serie_comprobante','ven.num_comprobante',
         'ven.fecha_hora','ven.impuesto','ven.total_venta','ven.  estado',DB::raw('per.nombre as nombrecliente'))
         ->where('ven.num_comprobante','LIKE','%'.$query.'%')
         ->orderBy('ven.idventa','asc')
