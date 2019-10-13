@@ -49,15 +49,16 @@ class VentaController extends Controller
     public function create()
     {
 
+     
       $personas=DB::table('persona as per')
       ->join('tipo_persona as tp','per.idtipopersona','=','tp.idtipo')
       ->where('tp.nombre','=','Cliente')->get();
       $articulos=DB::table('articulo as art')
-      ->select(DB::raw('CONCAT(art.codigo,"",art.nombre) AS articulo'),
-      'art.idarticulo','art.precio')
+      ->select(DB::raw('CONCAT(art.codigo," ",art.nombre) AS articulo'),
+      'art.idarticulo','art.stock')
       ->where('art.estado','=','Activo')
       ->where('art.stock','>','0')
-      ->grouopBy('articulo','art.idarticulo','art.strock','art.percio')
+      ->groupBy('articulo','art.idarticulo','art.stock','art.precio')
       ->get();
       return view("venta.create",["personas"=>$personas,"articulos"=>$articulos]);
     }
