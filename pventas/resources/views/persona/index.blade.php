@@ -8,7 +8,7 @@
   <div class="col-lg-12 col-lm-8">
     <div class="card">
       <div class="card-body">
-      <h3><a href="persona/create"><button class="btn btn-primary">Nuevo</button></a></h3>
+      <h3><a href="persona.create"><button class="btn btn-primary">Nuevo</button></a></h3>
           <div class="table-responsive">
             <table class="table table-striped table-bordered zero-configuration">
               <thead>

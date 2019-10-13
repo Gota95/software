@@ -72,7 +72,7 @@ class ArticuloController extends Controller
       $articulo->idcategoria=$request->get('idcategoria');
       $articulo->save();
 
-      return Redirect::to('articulo');
+      return Redirect::to('articulo/');
     }
 
     /**
@@ -128,7 +128,7 @@ class ArticuloController extends Controller
       }
       $articulo->Update();
 
-      return Redirect::to('articulo');
+      return Redirect::to('articulo/');
     }
 
     /**
@@ -140,6 +140,6 @@ class ArticuloController extends Controller
     public function destroy($id)
     {
       $articulo = DB::table('articulo')->where('idarticulo', '=',$id)->delete();
-    return Redirect::to('articulo');
+    return Redirect::to('articulo/');
     }
 }
