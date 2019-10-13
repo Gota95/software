@@ -56,6 +56,7 @@ class VentaController extends Controller
       $venta->tipo_comprobante=$request->get('tipo_comprobante');
       $venta->serie_comprobante=$request->get('serie_comprobante');
       $venta->num_comprobante=$request->get('num_comprobante');
+      $venta->impuesto=$request->get('impuesto');
       $venta->fecha_hora=$request->get('fecha_hora');
       $venta->total_venta=$request->get('total_venta');
       $venta->estado=$request->get('estado');
@@ -103,6 +104,7 @@ class VentaController extends Controller
       $venta->tipo_comprobante=$request->get('tipo_comprobante');
       $venta->serie_comprobante=$request->get('serie_comprobante');
       $venta->num_comprobante=$request->get('num_comprobante');
+      $venta->impuesto=$request->get('impuesto');
       $venta->fecha_hora=$request->get('fecha_hora');
       $venta->total_venta=$request->get('total_venta');
       $venta->estado=$request->get('estado');
