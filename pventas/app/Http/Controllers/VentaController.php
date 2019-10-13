@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Venta;
+use App\Http\Requests\VentaFormRequest;
+use Illuminate\Support\Facades\Redirect;
+use DB;
 
 class VentaController extends Controller
 {
@@ -70,12 +74,6 @@ class VentaController extends Controller
      */
     public function show($id)
     {
-      $venta=DB::table('venta as ven')
-      ->join('persona as per','ven.idcliente','=','per.idpersona')
-      ->select('ven.idventa','ven.tipo_comprobante','ven.serie_comprobante','num_comprobante',
-      'fecha_hora','impuesto','total_venta','ven.estado',DB::raw('per.nombre as nombrecliente'))
-      ->where('ven.idventa','=',$id)->first();
-
       return view("venta.show",["venta"=>Venta::findOrFail($id)]);
     }
 
