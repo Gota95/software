@@ -57,7 +57,7 @@ class VentaController extends Controller
       'art.idarticulo','art.precio')
       ->where('art.estado','=','Activo')
       ->where('art.stock','>','0')
-      ->grouopBy('articulo','art.idarticulo','art.strock','art.percio')
+      ->groupBy('articulo','art.idarticulo','art.strock','art.percio')
       ->get();
       return view("venta.create",["personas"=>$personas,"articulos"=>$articulos]);
     }
