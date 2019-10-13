@@ -30,7 +30,7 @@
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 <div class="form-group">
 <label>Tipo Persona</label>
-<select name="idtipo" class="form-control">
+<select name="idtipopersona" class="form-control">
 @foreach ($tipos as $tp)
 <option value="{{$tp->idtipo}}">{{$tp->nombre}}</option>
 @endforeach

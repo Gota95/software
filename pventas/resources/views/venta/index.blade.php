@@ -16,7 +16,9 @@
               <th>No. Venta</th>
                 <th>Fecha</th>
                 <th>Cliente </th>
-                <th>Comprobante</th>
+                <th>No.Comprobante</th>
+                <th>Tipo_Comprobante</th>
+                <th>Serie_Comprobante</th>
                 <th>Impuesto</th>
                 <th>Total</th>
                 <th>Estado</th>
@@ -26,11 +28,14 @@
                 <tr>
                   <td>{{$ven->idventa}}</td>
                   <td>{{$ven->fecha_hora}}</td>
-                  <td>{{$ven->idcliente}}</td>
-                  <td>{{$ven->tipo_comprobante}}</td>
+                  <td>{{$ven->nombrecliente}}</td>
                   <td>{{$ven->num_comprobante}}</td>
-                  <td>{{$ven->tota_venta}}</td>
+                  <td>{{$ven->tipo_comprobante}}</td>
+                  <td>{{$ven->serie_comprobante}}</td>
+                  <td>Q.{{$ven->impuesto}}</td>
+                  <td>Q.{{$ven->total_venta}}</td>
                   <td>{{$ven->estado}}</td>
+                
 
                   <td>
                   <a href="{{ route('venta.edit', $ven->idventa) }}"> <button class="btn btn-info">Editar</button></a>

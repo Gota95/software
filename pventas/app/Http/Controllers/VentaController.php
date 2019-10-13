@@ -68,7 +68,6 @@ class VentaController extends Controller
      */
     public function store(VentaFormRequest $request)
     {
-  try{
         $venta=new Venta;
         $venta->idventa=$request->get('idventa');
         $venta->idcliente=$request->get('idcliente');
@@ -104,10 +103,6 @@ class VentaController extends Controller
         }
 
         DB::commit();
-      }catch(\Exception $e)
-      {
-        DB::rollback();
-      }
 
       return Redirect::to('venta');
 
