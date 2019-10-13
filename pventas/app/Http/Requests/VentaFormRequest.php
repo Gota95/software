@@ -28,10 +28,11 @@ class VentaFormRequest extends FormRequest
           'tipo_comprobante',
           'serie_comprobante',
           'num_comprobante',
-          'fecha_hora',
-          'impuesto',
-          'total_venta',
-          'estado'
+          'idarticulo',
+          'cantidad',
+          'precio_venta',
+          'descuento',
+          'total_venta'
         ];
     }
 }
