@@ -49,7 +49,9 @@ class VentaController extends Controller
     public function create()
     {
 
-      $personas=DB::table('persona')->where('tipo_persona','=','Cliente')->get();
+      $personas=DB::table('persona as per')
+      ->join('tipo_persona as tp','per.idtipo','=','tp.idtipo')
+      ->where('nombre','=','Cliente')->get();
       $articulos=DB::table('articulo as art')
       ->select(DB::raw('CONCAT(art.codigo,"",art.nombre) AS articulo'),
       'art.idarticulo','art.precio')
