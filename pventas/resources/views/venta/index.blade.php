@@ -16,9 +16,7 @@
               <th>No. Venta</th>
                 <th>Fecha</th>
                 <th>Cliente </th>
-                <th>No.Comprobante</th>
-                <th>Tipo_Comprobante</th>
-                <th>Serie_Comprobante</th>
+                <th>Comprobante</th>
                 <th>Impuesto</th>
                 <th>Total</th>
                 <th>Estado</th>
@@ -29,18 +27,18 @@
                   <td>{{$ven->idventa}}</td>
                   <td>{{$ven->fecha_hora}}</td>
                   <td>{{$ven->nombrecliente}}</td>
-                  <td>{{$ven->num_comprobante}}</td>
-                  <td>{{$ven->tipo_comprobante}}</td>
-                  <td>{{$ven->serie_comprobante}}</td>
+                  <td>{{$ven->tipo_comprobante.': '.$ven->serie_comprobante.'-'.$ven->num_comprobante}}</td>
                   <td>Q.{{$ven->impuesto}}</td>
                   <td>Q.{{$ven->total_venta}}</td>
                   <td>{{$ven->estado}}</td>
                 
 
                   <td>
-                  <a href="{{ route('venta.edit', $ven->idventa) }}"> <button class="btn btn-info">Editar</button></a>
+                  <a href="{{URL::action('VentaController@show',$ven->idventa) }}"> <button class="btn btn-info">Detalles</button></a>
+                   
+                   
                    <a href="" data-target="#modal-delete-{{$ven->idventa}}" data-toggle="modal">
-                   <button class="btn btn-danger"> Eliminar </button></a>
+                   <button class="btn btn-danger"> Anular </button></a>
 
                 </td>
 
