@@ -34,7 +34,8 @@ class VentaController extends Controller
      */
     public function create()
     {
-        //
+      $personas=DB::table('persona')->get();
+      return view("venta.create",["personas"=>$personas]);
     }
 
     /**
@@ -45,7 +46,20 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $venta=new Venta;
+      $venta->idventa=$request->get('idventa');
+      $venta->idcliente=$request->get('idcliente');
+      $venta->tipo_comprobante=$request->get('tipo_comprobante');
+      $venta->serie_comprobante=$request->get('serie_comprobante');
+      $venta->num_comprobante=$request->get('num_comprobante');
+      $venta->fecha_hora=$request->get('fecha_hora');
+      $venta->total_venta=$request->get('total_venta');
+      $venta->estado=$request->get('estado');
+
+      $venta->save();
+
+      return Redirect::to('venta');
+
     }
 
     /**
@@ -56,7 +70,13 @@ class VentaController extends Controller
      */
     public function show($id)
     {
-        //
+      $venta=DB::table('venta as ven')
+      ->join('persona as per','ven.idcliente','=','per.idpersona')
+      ->select('ven.idventa','ven.tipo_comprobante','ven.serie_comprobante','num_comprobante',
+      'fecha_hora','impuesto','total_venta','ven.estado',DB::raw('per.nombre as nombrecliente'))
+      ->where('ven.idventa','=',$id)->first();
+
+      return view("venta.show",["venta"=>Venta::findOrFail($id)]);
     }
 
     /**
@@ -67,7 +87,8 @@ class VentaController extends Controller
      */
     public function edit($id)
     {
-        //
+      $clientes=DB::table('persona')->get();
+      return view("venta.edit",["venta"=>Venta::findOrFail($id),"clientes"=>$clientes])
     }
 
     /**
@@ -79,7 +100,18 @@ class VentaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $venta=Venta::findOrFail($id);
+      $venta->idcliente=$request->get('idcliente');
+      $venta->tipo_comprobante=$request->get('tipo_comprobante');
+      $venta->serie_comprobante=$request->get('serie_comprobante');
+      $venta->num_comprobante=$request->get('num_comprobante');
+      $venta->fecha_hora=$request->get('fecha_hora');
+      $venta->total_venta=$request->get('total_venta');
+      $venta->estado=$request->get('estado');
+
+      $venta->Update();
+
+      return Redirect::to('venta');
     }
 
     /**
@@ -90,6 +122,7 @@ class VentaController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $venta = DB::table('venta')->where('idventa', '=',$id)->delete();
+      return Redirect::to('venta');
     }
 }
