@@ -88,7 +88,7 @@ class VentaController extends Controller
     public function edit($id)
     {
       $clientes=DB::table('persona')->get();
-      return view("venta.edit",["venta"=>Venta::findOrFail($id),"clientes"=>$clientes])
+      return view("venta.edit",["venta"=>Venta::findOrFail($id),"clientes"=>$clientes]);
     }
 
     /**
