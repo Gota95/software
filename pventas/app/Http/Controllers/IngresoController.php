@@ -21,7 +21,7 @@ class IngresoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       if($request){
         $query= trim($request->get('searchText'));
@@ -50,9 +50,9 @@ class IngresoController extends Controller
      */
     public function create()
     {
-      $personas=DB::table('persona as per')
-      ->join('tipo_persona as tp','per.idtipopersona','=','tp.idtipo')
-      ->where('tp.nombre','=','Proveedor')->get();
+      $personas=DB::table('persona')
+      ->where('idtipopersona','=','1')->get();
+      
       $articulos=DB::table('articulo as art')
       ->select(DB::raw('CONCAT(art.codigo,"",art.nombre) AS articulo'),
       'art.idarticulo')

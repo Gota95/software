@@ -50,9 +50,8 @@ class VentaController extends Controller
     {
 
      
-      $personas=DB::table('persona as per')
-      ->join('tipo_persona as tp','per.idtipopersona','=','tp.idtipo')
-      ->where('tp.nombre','=','Cliente')->get();
+      $personas=DB::table('persona')
+      ->where('idtipopersona','=','0')->get();
       $articulos=DB::table('articulo as art')
       ->select(DB::raw('CONCAT(art.codigo," ",art.nombre) AS articulo'),
       'art.idarticulo','art.stock', DB:: raw('avg(di.precio_venta) as precio_promedio'))

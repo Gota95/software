@@ -10,8 +10,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{asset('./plugins/highlightjs/styles/darkula.css')}}">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -125,7 +128,7 @@
                             <i class="icon-bag "></i> <span class="nav-text">Ingresos</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="/detalle_ingreso">Ingreso</a></li>
+                            <li><a href="/ingreso">Ingreso</a></li>
                             <li><a href="/detalle_ingreso">Detalle Ingreso</a></li>
                         </ul>
 
@@ -203,10 +206,14 @@
     ***********************************-->
     <script src="{{asset('plugins/common/common.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>
+    <script src="{{asset('js/jquery-3.4.1.min')}}"></script>
+    @stack('scripts')
     <script src="{{asset('js/settings.js')}}"></script>
     <script src="{{asset('js/styleSwitcher.js')}}"></script>
+    <script src="{{asset('js/bootstrap-select.min.css')}}"></script>
 
     <script src="{{asset('./plugins/highlightjs/highlight.pack.min.js')}}"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
     <script>
