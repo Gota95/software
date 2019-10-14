@@ -58,7 +58,7 @@
 <th></th>
 <th></th>
 <th></th>
-<th><h4 id="total">{{$ingreso->total}}</h4></th>
+<th><h4 id="total">TOTAL Q.{{$ingreso->total}}</h4></th>
 </tfoot>
 <tbody> 
 @foreach($detalles as $det)
@@ -66,9 +66,9 @@
 
 <td>{{$det->articulo}}</td>
 <th>{{$det->cantidad}}</th>
-<th>{{$det->precio_compra}}</th>
-<th>{{$det->precio_venta}}</th>
-<th>{{$det->cantidad*$det->precio_compra}}</h4></th>
+<th>Q.{{$det->precio_compra}}</th>
+<th>Q.{{$det->precio_venta}}</th>
+<th>Q.{{$det->cantidad*$det->precio_compra}}</h4></th>
 </tr>
 @endforeach
 </tbody>
