@@ -163,6 +163,7 @@ class IngresoController extends Controller
       $ingreso->estado='C';
       $ingreso->update();
 
+
       return Redirect::to('ingreso');
     }
 }

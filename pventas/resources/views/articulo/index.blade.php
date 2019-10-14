@@ -17,7 +17,7 @@
                 <th>Codigo</th>
                 <th>Nombre </th>
                 <th>Precio</th>
-                <th>Cantidad Disponible</th>
+                <th><center>Cantidad Disponible</center></th>
                 <th>Imagen</th>
                 <th>Estado</th>
                 <th>Opciones</th>
@@ -30,7 +30,7 @@
                 <td>{{$art->nombre}}</td>
                   <td>Q.{{$art->precio}}</td>
 
-                  <td>{{$art->stock}}</td>
+                  <td><center>{{$art->stock}}</center></td>
                   <td>
                   <img src="{{asset('imagenes/articulos/'.$art->imagen)}}"alt="{{$art->nombre}}" height="100px" width="100px" class="img-thumbail">
                   </td>
