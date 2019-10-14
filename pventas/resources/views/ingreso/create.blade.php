@@ -218,7 +218,7 @@ Agregar
 
    function eliminar(index){
     total=total-subtotal[index]; 
-    $("#total").html("S/. " + total);   
+    $("#total").html("Q/. " + total);   
     $("#fila" + index).remove();
     evaluar();
 
