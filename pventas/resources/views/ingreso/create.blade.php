@@ -6,7 +6,7 @@
 <div class="row">
 
 <div class="col-lg-10 col-md-12 col-xs-12">
-<h3>Nuevo Ingreso</h3>
+<center><h3>Nuevo Ingreso</h3></center>
 
 @if (count($errors)>0)
 <div class="alert alert-danger">
@@ -188,7 +188,7 @@ Agregar
        var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_compra[]" value="'+precio_compra+'"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td><td>'+subtotal[cont]+'</td></tr>';
        cont++;
        limpiar();
-       $('#total').html("$/ " + total);
+       $('#total').html("Q/ " + total);
        evaluar();
        $('#detalles').append(fila);
 

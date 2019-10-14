@@ -30,13 +30,9 @@ class IngresoController extends Controller
         ->join('detalle_ingreso as di','ing.idingreso','=','di.idingreso')
         ->select('ing.idingreso','ing.tipo_comprobante',
         'ing.serie_comprobante','ing.num_comprobante',
-        'ing.fecha_hora','ing.impuesto','ing.estado',
-        DB::raw('sum(di.cantidad*di.preciocompra) as total'),DB::raw('per.nombre as nombreproveedor'))
+        'ing.fecha_hora','ing.impuesto','ing.estado',DB::raw("per.nombre as nombreproveedor"),DB::raw('di.cantidad*di.precio_compra as total'))
         ->where('ing.num_comprobante','LIKE','%'.$query.'%')
         ->orderBy('ing.idingreso','asc')
-        ->groupBy('ing.idingreso','ing.tipo_comprobante',
-        'ing.serie_comprobante','ing.num_comprobante',
-        'ing.fecha_hora','ing.impuesto','ing.estado')
         ->paginate(7);
 
         return view("ingreso.index",["ingresos"=>$ingresos,"searchText"=>$query]);
@@ -80,7 +76,7 @@ class IngresoController extends Controller
 
       $mytime=Carbon::now('America/Lima');
       $ingreso->fecha_hora=$mytime->toDateTimeString();
-      $ingreso->impuesto='0';
+      $ingreso->impuesto='0.12';
       $ingreso->estado='A';
 
       $ingreso->save();
@@ -121,8 +117,7 @@ class IngresoController extends Controller
       ->join('persona as per','ing.idproveedor','=','per.idpersona')
       ->select('ing.idingreso','ing.tipo_comprobante',
       'ing.serie_comprobante','ing.num_comprobante',
-      'ing.fecha_hora','ing.impuesto','ing.estado',
-      DB::raw('sum(di.cantidad*di.preciocompra) as total'),DB::raw('per.nombre as nombreproveedor'))
+      'ing.fecha_hora','ing.impuesto','ing.estado',DB::raw('per.nombre as nombreproveedor'),DB::raw('di.cantidad*di.precio_compra as total'))
       ->where('ing.idingreso','=',$id)->first();
 
       $detalles=DB::table('detalle_ingreso as di')
