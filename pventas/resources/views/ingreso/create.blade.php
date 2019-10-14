@@ -1,7 +1,8 @@
 @extends ('layouts.admin')
 @section ('contenido')
 
-
+<div class="content-body">
+        
 <div class="row">
 
 <div class="col-lg-10 col-md-12 col-xs-12">
@@ -156,7 +157,7 @@ Agregar
 </div>
 
 </div>
-
+</div>
 
 {!!Form::close()!!}  
          @push ('scripts')

@@ -1,5 +1,7 @@
 @extends ('layouts.admin')
 @section ('contenido')
+<div class="content-body">
+        
 <div class="row">
 <div class="col-lg-8 col-md-6 col-xs-12">
 <h3>Editar: {{$categoria->nombre}}</h3>
@@ -36,5 +38,5 @@
 
 </div>
 </div>
-
+</div>
 @endsection

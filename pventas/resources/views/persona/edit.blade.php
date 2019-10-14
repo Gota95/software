@@ -1,6 +1,8 @@
 
 @extends ('layouts.admin')
 @section ('contenido')
+<div class="content-body">
+        
 <div class="row">
 <div class="col-lg-8 col-md-6 col-xs-12">
 <center><h3>Nueva Persona </h3></center>
@@ -87,6 +89,7 @@
 
 {!!Form::close()!!}
 
+</div>
 </div>
 </div>
 

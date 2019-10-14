@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Sistema Ventas</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="6x6" href="{{asset('images/favicon.png')}}">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{asset('./plugins/highlightjs/styles/darkula.css')}}">
 
@@ -22,13 +22,7 @@
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
+ 
     <!--*******************
         Preloader end
     ********************-->
@@ -129,7 +123,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/ingreso">Ingreso</a></li>
-                            <li><a href="/detalle_ingreso">Detalle Ingreso</a></li>
+             
                         </ul>
 
                     </li>
@@ -139,7 +133,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/venta">Venta</a></li>
-                            <li><a href="./app-calender.html">Detalle Venta</a></li>
+ 
                         </ul>
                     </li>
                     <br>
@@ -175,20 +169,12 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-        <section class="py-5 bg-image-full" style="background-image: url('');">
-
-
-            <!-- row -->
-              <div class="content-body">
-                <div class="row">
-                    <div class="col">
+        
+              
                  
                 @yield('contenido')
                 
-  </section>
-              </div>
-            </div>
-              </div>
+        
 
             <!-- #/ container -->
         </div>
