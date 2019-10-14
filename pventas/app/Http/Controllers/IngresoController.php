@@ -115,15 +115,17 @@ class IngresoController extends Controller
     {
       $ingreso=DB::table('ingreso as ing')
       ->join('persona as per','ing.idproveedor','=','per.idpersona')
+      ->join('detalle_ingreso as di','ing.idingreso','=','di.idingreso')
       ->select('ing.idingreso','ing.tipo_comprobante',
       'ing.serie_comprobante','ing.num_comprobante',
-      'ing.fecha_hora','ing.impuesto','ing.estado',DB::raw('per.nombre as nombreproveedor'),DB::raw('di.cantidad*di.precio_compra as total'))
-      ->where('ing.idingreso','=',$id)->first();
+      'ing.fecha_hora','ing.impuesto','ing.estado',DB::raw("per.nombre as nombreproveedor"),DB::raw('di.cantidad*di.precio_compra as total'))
+          ->where('ing.idingreso','=',$id)->first();
 
       $detalles=DB::table('detalle_ingreso as di')
       ->join('articulo as a','di.idarticulo','=','a.idarticulo')
       ->select('a.nombre as articulo','di.cantidad','di.precio_compra','di.precio_venta')
-      ->where('di.idingreso','=',$id)->get();
+      ->where('di.idingreso','=',$id)
+      ->get();
 
       return view("ingreso.show",["ingreso"=>$ingreso,"detalles"=>$detalles]);
     }

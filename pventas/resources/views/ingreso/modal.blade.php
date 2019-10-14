@@ -20,3 +20,6 @@ Cerrar</button>
 </div>
 </div>
 </div>
+
+{{Form::Close()}}
+</div>
