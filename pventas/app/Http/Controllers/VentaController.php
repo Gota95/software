@@ -29,12 +29,10 @@ class VentaController extends Controller
         ->join('detalle_venta as dv','ven.idventa','=','dv.idventa')
         ->select('ven.idventa','ven.tipo_comprobante',
         'ven.serie_comprobante','ven.num_comprobante',
-        'ven.fecha_hora','ven.impuesto','ven.total_venta','ven.  estado',DB::raw('per.nombre as nombrecliente'))
+        'ven.fecha_hora','ven.impuesto','ven.total_venta','ven.estado',DB::raw('per.nombre as nombrecliente'))
         ->where('ven.num_comprobante','LIKE','%'.$query.'%')
         ->orderBy('ven.idventa','asc')
-        ->groupBy('ven.idventa','ven.fecha_hora','per.nombre',
-        'ven.tipo_comprobante','ven.serie_comprobante',
-        'ven.num_comprobante','ven.impuesto','ven.estado')
+       
         ->paginate(7);
 
         return view("venta.index",["ventas"=>$ventas,"searchText"=>$query]);
@@ -51,12 +49,14 @@ class VentaController extends Controller
 
      
       $personas=DB::table('persona')
-      ->where('idtipopersona','=','0')->get();
+      ->where('idtipopersona','=','2')->get();
       $articulos=DB::table('articulo as art')
+      ->join('detalle_ingreso as di','art.idarticulo','=','di.idarticulo')
       ->select(DB::raw('CONCAT(art.codigo," ",art.nombre) AS articulo'),
-      'art.idarticulo','art.stock', DB:: raw('avg(di.precio_venta) as precio_promedio'))
+      'art.idarticulo','art.stock', DB::raw('avg(di.precio_venta) as precio_venta'))
       ->where('art.estado','=','Activo')
       ->where('art.stock','>','0')
+      ->groupBy('articulo','art.idarticulo','art.stock')
       ->get();
       return view("venta.create",["personas"=>$personas,"articulos"=>$articulos]);
     }
@@ -87,7 +87,7 @@ class VentaController extends Controller
         $idarticulo=$request->get('idarticulo');
         $cantidad=$request->get('cantidad');
         $descuento=$request->get('descuento');
-        $precio=$request->get('precio');
+        $precio_venta=$request->get('precio_venta');
 
 
         $cont=0;
@@ -98,7 +98,7 @@ class VentaController extends Controller
           $detalle->idarticulo=$idarticulo[$cont];
           $detalle->cantidad=$cantidad[$cont];
           $detalle->descuento=$descuento[$cont];
-          $detalle->precio=$precio[$cont];
+          $detalle->precio_venta=$precio_venta[$cont];
           $detalle->save();
           $cont=$cont+1;
         }
@@ -124,11 +124,11 @@ class VentaController extends Controller
         ->select('ven.idventa','ven.tipo_comprobante',
         'ven.serie_comprobante','num_comprobante',
         'ven.fecha_hora','ven.impuesto','ven.total_venta','ven.estado')
-        ->where('v.idventa','=',$id)->first();
+        ->where('dv.idventa','=',$id)->first();
 
       $detalles=DB::table('detalle_venta as dv')
         ->join('articulo as art','dv.idarticulo','=','art.idarticulo')
-        ->select('art.nombre as articulo','dv.cantidad','dv.descuento','dv.precio')
+        ->select('art.nombre as articulo','dv.cantidad','dv.descuento','dv.precio_venta')
         ->where('dv.idventa','=',$id)->get();
 
       return view("venta.show",["venta"=>$venta,"detalles"=>$detalles]);
