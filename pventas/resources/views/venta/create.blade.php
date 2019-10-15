@@ -247,46 +247,27 @@ Agregar
 
     {
 
-      if (stock<=cantidad) {
+      if (stock>=0) 
+      {
 
       subtotal[cont]=(cantidad*precio_venta-descuento);
-
       total=total+subtotal[cont];
-
-
-
        var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td><td><input type="number" name="descuento[]" value="'+descuento+'"></td><td>'+subtotal[cont]+'</td></tr>';
-
        cont++;
-
        limpiar();
-
        $('#total').html("$/ " + total);
-
        $('#total_venta').val(total);
-
        evaluar();
-
        $('#detalles').append(fila);
-
-     }else{
-
-      alert ('La cantidad a vender supera el stock');
-
      }
-
-       
-
-
-
+     else
+     {
+      alert ('La cantidad a vender supera el stock');
+     }
     }
-
     else
-
     {
-
       alert("Error al ingresar el detalle de la venta, revise los datos del articulo")
-
     }
 
 }
