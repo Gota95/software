@@ -76,7 +76,7 @@ class IngresoController extends Controller
 
       $mytime=Carbon::now('America/Lima');
       $ingreso->fecha_hora=$mytime->toDateTimeString();
-      $ingreso->impuesto='0';
+      $ingreso->impuesto=$request->get('precio_compra')*0.12;
       $ingreso->estado='A';
 
       $ingreso->save();

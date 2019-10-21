@@ -79,7 +79,7 @@ class VentaController extends Controller
 
         $mytime=Carbon::now('America/Lima');
         $venta->fecha_hora=$mytime->toDateTimeString();
-        $venta->impuesto='0';
+        $venta->impuesto=$request->get('total_venta')*0.12;
         $venta->estado='A';
 
         $venta->save();
