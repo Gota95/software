@@ -14,13 +14,14 @@ class UsersController extends Controller
   public function index(Request $request){
   if($request){
     $query=trim($request->get('searchText'));
-    $usuarios=DB::table('users')->where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->paginate(7);
-    return view('usuarios.index', ["usuarios"=>$usuarios,"searchText"=>$query]);
+    $usuarios=DB::table('users as us')
+    ->select('us.id','us.name','us.email','us.rol')->where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->paginate(7);
+    return view('users.index', ["usuarios"=>$usuarios,"searchText"=>$query]);
   }
 }
 
 public function create(){
-  return view("usuarios.create");
+  return view("users.create");
 }
 
 public function store(UsuariosFormRequest $request){
@@ -30,11 +31,11 @@ public function store(UsuariosFormRequest $request){
   $usuario->rol=$request->get('rol');
   $usuario->password=bcrypt($request->get('password'));
   $usuario->save();
-  return Redirect::to('usuarios');
+  return Redirect::to('users');
 }
 
 public function edit($id){
-  return view("usuarios.edit",["usuario"=>User::findOrFail($id)]);
+  return view("users.edit",["usuario"=>User::findOrFail($id)]);
 }
 
 public function update(UsuariosFormRequest $request, $id){
@@ -47,8 +48,14 @@ public function update(UsuariosFormRequest $request, $id){
   return Redirect::to('usuarios');
 }
 
+public function show($id)
+{
+  return view("users.show",["usuario"=>User::findOrFail($id)]);
+
+}
+
 public function destroy($id){
   $usuario = DB::table('users')->where('id', '=',$id)->delete();
-  return Redirect::to('usuarios');
+  return Redirect::to('users');
 }
 }

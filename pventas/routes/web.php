@@ -26,3 +26,6 @@ Route::resource('tipo','TipoController');
 Route::resource('persona','PersonaController');
 Route::resource('venta','VentaController');
 Route::resource('ingreso','IngresoController');
+
+//RUTA PARA MODULO DE USUARIOS
+Route::resource('users','UsersController');

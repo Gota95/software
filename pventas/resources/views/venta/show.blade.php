@@ -12,7 +12,7 @@
 <div class="form-group">
 
 </div>
-</div>   
+</div>
 </center>
 <div class="row">
 
@@ -50,7 +50,7 @@
 <th>Subtotal</th>
 
 </thead>
-<tfoot> 
+<tfoot>
 
 
 <th></th>
@@ -59,7 +59,7 @@
 <th></th>
 <th><h4 id="total">TOTAL Q.{{$venta->total_venta}}</h4></th>
 </tfoot>
-<tbody> 
+<tbody>
 @foreach($detalles as $d)
 <tr>
 
@@ -78,7 +78,5 @@
 
 
 </div>
-
-
-         @endsection
-         </div>
+ @endsection
+</div>

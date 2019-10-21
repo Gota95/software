@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
 
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-  
+
 </head>
 
 <body>
@@ -22,7 +22,7 @@
     <!--*******************
         Preloader start
     ********************-->
- 
+
     <!--*******************
         Preloader end
     ********************-->
@@ -46,11 +46,11 @@
                     </div>
                 </div>
                 <div class="header-left">
-               
+
                 </div>
 
 
-                
+
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
@@ -58,7 +58,7 @@
                             <div class="drop-down animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                 </div>
-                                
+
                             </div>
                         </li>
                     </ul>
@@ -90,7 +90,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        
+
         <div class="nk-sidebar">
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
@@ -100,7 +100,7 @@
                             <i class="icon-people"></i><span class="nav-text">Registro</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./index.html">Usuarios</a></li>
+                            <li><a href="/users">Usuarios</a></li>
                             <li><a href="/persona">Persona</a></li>
                             <li><a href="/tipo">Tipo de persona</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
@@ -115,7 +115,7 @@
                             <li><a href="/articulo">Articulos</a></li>
                         </ul>
                     </li>
-              
+
                     <li class="nav-label">Compra/Venta</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -123,7 +123,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/ingreso">Ingreso</a></li>
-             
+
                         </ul>
 
                     </li>
@@ -133,13 +133,13 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/venta">Venta</a></li>
- 
+
                         </ul>
                     </li>
                     <br>
                     <li class="nav-label">Mas opciones</li>
                     <li>
-                       
+
                         <a href="./app-profile.html">
                         <i class="icon-grid  "></i><span class="nav-text">Estadisticas</span>
                         </a>
@@ -155,9 +155,9 @@
                         </a>
 
 </li>
-                  
-                
-                
+
+
+
                 </ul>
             </div>
         </div>
@@ -169,12 +169,12 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-        
-              
-                 
+
+
+
                 @yield('contenido')
-                
-        
+
+
 
             <!-- #/ container -->
         </div>
