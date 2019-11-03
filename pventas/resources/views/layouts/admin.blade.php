@@ -53,7 +53,7 @@
 
                 <div class="header-right">
                     <ul class="clearfix">
-                        <li class="icons dropdown"><a href="javascript:void()" data-toggle="dropdown">
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
                             </a>
                             <div class="drop-down animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
@@ -123,12 +123,13 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/ingreso">Ingreso</a></li>
+
                         </ul>
 
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-basket"></i><span class="nav-text">Ventas</span>
+                            <i class="icon-basket "></i><span class="nav-text">Ventas</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/venta">Venta</a></li>
@@ -152,7 +153,7 @@
                         <i class="icon-docs"></i><span class="nav-text">Reportes</span>
                         </a>
                         <ul aria-expanded="false">
-                          <li> <a href="{{ route('imprimir') }}">Ventas Dia</a></li>
+                          <li> <a href="/ventadia">Ventas Dia</a></li>
                           <li> <a href="/ventadia">Productos</a></li>
                         </ul>
                         </li>
@@ -205,7 +206,7 @@
     <script src="{{asset('js/styleSwitcher.js')}}"></script>
     <script src="{{asset('js/bootstrap-select.min.css')}}"></script>
 
-    <script src="{{asset('./plugins/highlightjs/highlight.pack.min.js')}}"></script>
+    <script src="{{asset('plugins/highlightjs/highlight.pack.min.js')}}"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
