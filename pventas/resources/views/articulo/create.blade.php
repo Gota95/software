@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 @section ('contenido')
 <div class="content-body">
-
+        
 <div class="row">
 <div class="col-lg-8 col-md-6 col-xs-12">
 <center><h3>Nuevo articulo</h3></center>
@@ -57,6 +57,15 @@
 <input type="text" name="precio" class="form-control" placeholder="Precio">
 </div>
 </div>
+
+<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+<div class="form-group">
+<label for="stock">Cantidad Disponible</label>
+<input type="text" name="stock" class="form-control" placeholder="Cantidad">
+</div>
+</div>
+
+
 
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 <div class="form-group">

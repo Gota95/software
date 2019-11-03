@@ -60,7 +60,7 @@ class ArticuloController extends Controller
       $articulo->codigo=$request->get('codigo');
       $articulo->nombre=$request->get('nombre');
       $articulo->precio=$request->get('precio');
-      $articulo->stock='0';
+      $articulo->stock=$request->get('stock');
       $articulo->descripcion=$request->get('descripcion');
       $articulo->estado=$request->get('estado');
 

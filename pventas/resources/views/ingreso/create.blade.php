@@ -2,7 +2,7 @@
 @section ('contenido')
 
 <div class="content-body">
-
+        
 <div class="row">
 
 <div class="col-lg-10 col-md-12 col-xs-12">
@@ -23,11 +23,10 @@
 
 
 <div class="row">
-<?php $fcha = date("Y-m-d");?>
 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-6">
 <div class="form-group">
 <label for="fecha_hora">Fecha</label>
-<input type="date" name="fecha_hora" value="<?php echo $fcha;?>" readonly class="form-control">
+<input type="date" name="fecha_hora" class="form-control" placeholder="fecha">
 </div>
 </div>
 <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -47,7 +46,7 @@
 
 <div class="form-group">
 <label>Tipo Comprobante </label>
-<select  name="tipo_comprobante" required value="{{ old('tipo_comprobante') }}" class="form-control">
+<select  name="tipo_comprobante" class="form-control">
 <option value="Boleta">Boleta</option>
 <option value="Factura">Factura</option>
 <option value="Ticket">Ticker </option>
@@ -59,7 +58,7 @@
 
 <div class="form-group">
 <label for="serie_comprobante">Serie Comprobante</label>
-<input type="text" name="serie_comprobante" required value="{{ old('serie_comprobante') }}" class="form-control" placeholder="Serie">
+<input type="text" name="serie_comprobante" class="form-control" placeholder="Serie">
 </div>
 </div>
 
@@ -68,7 +67,7 @@
 
 <div class="form-group">
 <label for="num_comprobante">No.Comprobante</label>
-<input type="text" name="num_comprobante" required value="{{ old('num_comprobante') }}" class="form-control" placeholder="Comprobante">
+<input type="text" name="num_comprobante" class="form-control" placeholder="Comprobante">
 </div>
 </div>
 
@@ -76,9 +75,9 @@
 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 <div class="form">
 <label>Articulo</label>
-            <select name="pidarticulo" required value="{{ old('pidarticulo') }}" id="pidarticulo" class="form-control" data-live-search="true">
+            <select name="pidarticulo" id="pidarticulo" class="form-control" data-live-search="true">
             @foreach($articulos as $articulo)
-            <option value="{{$articulo->idarticulo}}_{{$articulo->stock}}_{{$articulo->precio}}">{{$articulo->articulo}}</option>
+            <option value="{{$articulo->idarticulo}}">{{$articulo->articulo}}</option>
             @endforeach
             </select>
 
@@ -88,7 +87,7 @@
 <div class="col-lg-3 col-sm-4 col-md-4 col-xs-12">
 <div class="form-group">
 <label for="cantidad">Cantidad</label>
-<input type="number" name="pcantidad" required value="{{ old('pcantidad') }}" id="pcantidad" class="form-control" placeholder="Cantidad">
+<input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="Cantidad">
 </div>
 
 
@@ -97,7 +96,7 @@
 <div class="col-lg-2 col-sm-4 col-md-4 col-xs-12">
 <div class="form-group">
 <label for="precio_compra">Precio Compra</label>
-<input type="number" name="pprecio_compra" required value="{{ old('pprecio_compra') }}" id="pprecio_compra" class="form-control">
+<input type="number" name="pprecio_compra" id="pprecio_compra" class="form-control">
 </div>
 
 
@@ -105,13 +104,13 @@
 <div class="col-lg-2 col-sm-4 col-md-4 col-xs-12">
 <div class="form-group">
 <label for=precio_venta>Precio Venta</label>
-<input type="number" name="pprecio_venta" required value="{{ old('pprecio_venta') }}" id="pprecio_venta" class="form-control">
+<input type="number" name="pprecio_venta" id="pprecio_venta" class="form-control">
 </div>
 </div>
 
 <div class="col-lg-3 col-sm-4 col-md-4 col-xs-12">
 <div class="form-group">
-<button type="button" id="bt_add" class="btn btn-primary">
+<button type="button" id="bt_add" class="btn btn-primary">  
 Agregar
 </button>
 </div>
@@ -128,7 +127,7 @@ Agregar
 <th>Subtotal</th>
 
 </thead>
-<tfoot>
+<tfoot> 
 <th>TOTAL</th>
 <th></th>
 <th></th>
@@ -137,7 +136,7 @@ Agregar
 <th><h4 id="total">Q/. 0.00</h4></th>
 
 </tfoot>
-<tbody>
+<tbody> 
 
 </tbody>
 </table>
@@ -160,7 +159,7 @@ Agregar
 </div>
 </div>
 
-{!!Form::close()!!}
+{!!Form::close()!!}  
          @push ('scripts')
          <script>
            $(document).ready(function(){
@@ -169,30 +168,13 @@ Agregar
          });
        });
 
-
-       $('#pidarticulo').change(mostrarValores);
-
-
-
-       function mostrarValores(){
-
-        datosArticulo=document.getElementById('pidarticulo').value.split('_');
-
-        $('#pprecio_venta').val(datosArticulo[2]);
-
-        $('#pstock').val(datosArticulo[1]);
-
-      }
-
-
   var cont=0;
   total=0;
   subtotal=[];
   $("#guardar").hide();
 
   function agregar(){
-    datosArticulo=document.getElementById('pidarticulo').value.split('_');
-    idarticulo=datosArticulo[0];
+    idarticulo=$("#pidarticulo").val();
     articulo=$("#pidarticulo option:selected").text();
     cantidad=$("#pcantidad").val();
     precio_compra=$("#pprecio_compra").val();
@@ -215,7 +197,7 @@ Agregar
     {
       alert("Error al ingresar el detalle del ingreso, revise los datos del articulo")
     }
-
+  
   }
   function limpiar(){
     $("#pcantidad").val("");
@@ -231,13 +213,13 @@ Agregar
     }
     else
     {
-      $("#guardar").hide();
+      $("#guardar").hide(); 
     }
    }
 
    function eliminar(index){
-    total=total-subtotal[index];
-    $("#total").html("Q/. " + total);
+    total=total-subtotal[index]; 
+    $("#total").html("Q/. " + total);   
     $("#fila" + index).remove();
     evaluar();
 
