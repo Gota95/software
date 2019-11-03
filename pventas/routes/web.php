@@ -29,3 +29,6 @@ Route::resource('ingreso','IngresoController');
 
 //RUTA PARA MODULO DE USUARIOS
 Route::resource('users','UsersController');
+
+
+Route::name('imprimir')->get('/reporte-ventas','RVentasController@imprimir');

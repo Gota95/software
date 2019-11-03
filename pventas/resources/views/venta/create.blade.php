@@ -2,7 +2,7 @@
 @section ('contenido')
 
 <div class="content-body">
-        
+
 <div class="row">
 
 <div class="col-lg-10 col-md-12 col-xs-12">
@@ -23,10 +23,11 @@
 
 
 <div class="row">
+  <?php $fcha = date("Y-m-d");?>
 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-6">
 <div class="form-group">
 <label for="fecha_hora">Fecha</label>
-<input type="date" name="fecha_hora" class="form-control" placeholder="fecha">
+<input type="date" name="fecha_hora" value="<?php echo $fcha; ?>" readonly class="form-control" placeholder="fecha">
 </div>
 </div>
 <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -111,17 +112,17 @@
 
 </div>
 
-<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+{{-- <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 <div class="form-group">
 <label for=descuento>Descuento</label>
 <input type="number" name="pdescuento" id="pdescuento" class="form-control">
 </div>
-</div>
+</div> --}}
 
 
 <div class="col-lg-3 col-sm-4 col-md-4 col-xs-12">
 
-<button type="button" id="bt_add" class="btn btn-primary">  
+<button type="button" id="bt_add" class="btn btn-primary">
 Agregar
 </button>
 
@@ -139,7 +140,7 @@ Agregar
 <th>Subtotal</th>
 
 </thead>
-<tfoot> 
+<tfoot>
 <th>TOTAL</th>
 <th></th>
 <th></th>
@@ -148,7 +149,7 @@ Agregar
 <th><h4 id="total">Q/. 0.00</h4><input type="hidden" name="total_venta"id="total_venta"></th>
 
 </tfoot>
-<tbody> 
+<tbody>
 
 </tbody>
 </table>
@@ -171,7 +172,7 @@ Agregar
 </div>
 </div>
 
-{!!Form::close()!!} 
+{!!Form::close()!!}
 
 
 
@@ -223,7 +224,7 @@ Agregar
 
     datosArticulos=document.getElementById('pidarticulo').value.split('_');
 
-  
+
 
 
 
@@ -247,7 +248,7 @@ Agregar
 
     {
 
-      if (stock>=0) 
+      if (stock>=0)
       {
 
       subtotal[cont]=(cantidad*precio_venta-descuento);
@@ -272,7 +273,7 @@ Agregar
 
 }
 
-  
+
 
 
 
@@ -304,7 +305,7 @@ Agregar
 
     {
 
-      $("#guardar").hide(); 
+      $("#guardar").hide();
 
     }
 
@@ -314,11 +315,11 @@ Agregar
 
  function eliminar(index){
 
-  total=total-subtotal[index]; 
+  total=total-subtotal[index];
 
     $("#total").html("S/. " + total);
 
-    $("#total_venta").val(total);   
+    $("#total_venta").val(total);
 
     $("#fila" + index).remove();
 
