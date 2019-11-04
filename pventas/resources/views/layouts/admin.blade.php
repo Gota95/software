@@ -153,8 +153,8 @@
                         <i class="icon-docs"></i><span class="nav-text">Reportes</span>
                         </a>
                         <ul aria-expanded="false">
-                          <li> <a href="/ventadia">Ventas Dia</a></li>
-                          <li> <a href="/ventadia">Productos</a></li>
+                          <li> <a href="{{ route('imprimir') }}">Ventas Dia</a></li>
+                          <li> <a href="{{route('productos')}}">Productos</a></li>
                         </ul>
                         </li>
                         <li>

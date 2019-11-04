@@ -31,3 +31,4 @@ Route::resource('ingreso','IngresoController');
 Route::resource('users','UsersController');
 
 Route::name('imprimir')->get('/imprimir','RVentasController@imprimir');
+Route::name('productos')->get('/productos','RProductosController@imprimir');

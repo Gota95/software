@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Ventas</title>
+  <title>Productos</title>
   <style>
   table{
     font-family: arial, sans-serif;
@@ -22,20 +22,24 @@
   </style>
 </head>
 <body>
-  <h1>VENTAS DEL DIA</h1>
+  <h1>Lista de Productos</h1>
     <table>
       <tr>
-        <th>Numero Comprobante</th>
-        <th>Fecha Hora</th>
-        <th>Total Venta</th>
-        <th>Cliente</th>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Existencia</th>
+        <th>Categoria</th>
+        <th>Estado</th>
       </tr>
-      @foreach($ventas as $v)
+      @foreach($productos as $p)
         <tr>
-          <td>{{$v->num_comprobante}}</td>
-          <td>{{$v->fecha_hora}}</td>
-          <td>Q.{{$v->total_venta}}</td>
-          <td>{{$v->nombrecliente}}</td>
+          <td>{{$p->codigo}}</td>
+          <td>{{$p->nombre}}</td>
+          <td>Q.{{$p->precio}}</td>
+          <td>{{$p->stock}}</td>
+          <td>{{$p->categoria}}</td>
+          <td>{{$p->estado}}</td>
         </tr>
       @endforeach
     </table>
