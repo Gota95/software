@@ -23,10 +23,11 @@
 
 
 <div class="row">
+  <?php $day = date('Y-m-d'); ?>
 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-6">
 <div class="form-group">
 <label for="fecha_hora">Fecha</label>
-<input type="date" name="fecha_hora" class="form-control" placeholder="fecha">
+<input type="date" name="fecha_hora" value="<?php echo $day; ?>" readonly class="form-control" placeholder="fecha">
 </div>
 </div>
 <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">

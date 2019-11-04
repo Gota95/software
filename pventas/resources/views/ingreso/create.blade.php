@@ -2,7 +2,7 @@
 @section ('contenido')
 
 <div class="content-body">
-        
+
 <div class="row">
 
 <div class="col-lg-10 col-md-12 col-xs-12">
@@ -23,10 +23,11 @@
 
 
 <div class="row">
+<?php $day = date('Y-m-d'); ?>
 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-6">
 <div class="form-group">
 <label for="fecha_hora">Fecha</label>
-<input type="date" name="fecha_hora" class="form-control" placeholder="fecha">
+<input type="date" name="fecha_hora" value="<?php echo $day; ?>" readonly class="form-control" placeholder="fecha">
 </div>
 </div>
 <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -110,7 +111,7 @@
 
 <div class="col-lg-3 col-sm-4 col-md-4 col-xs-12">
 <div class="form-group">
-<button type="button" id="bt_add" class="btn btn-primary">  
+<button type="button" id="bt_add" class="btn btn-primary">
 Agregar
 </button>
 </div>
@@ -127,7 +128,7 @@ Agregar
 <th>Subtotal</th>
 
 </thead>
-<tfoot> 
+<tfoot>
 <th>TOTAL</th>
 <th></th>
 <th></th>
@@ -136,7 +137,7 @@ Agregar
 <th><h4 id="total">Q/. 0.00</h4></th>
 
 </tfoot>
-<tbody> 
+<tbody>
 
 </tbody>
 </table>
@@ -159,7 +160,7 @@ Agregar
 </div>
 </div>
 
-{!!Form::close()!!}  
+{!!Form::close()!!}
          @push ('scripts')
          <script>
            $(document).ready(function(){
@@ -197,7 +198,7 @@ Agregar
     {
       alert("Error al ingresar el detalle del ingreso, revise los datos del articulo")
     }
-  
+
   }
   function limpiar(){
     $("#pcantidad").val("");
@@ -213,13 +214,13 @@ Agregar
     }
     else
     {
-      $("#guardar").hide(); 
+      $("#guardar").hide();
     }
    }
 
    function eliminar(index){
-    total=total-subtotal[index]; 
-    $("#total").html("Q/. " + total);   
+    total=total-subtotal[index];
+    $("#total").html("Q/. " + total);
     $("#fila" + index).remove();
     evaluar();
 

@@ -4,7 +4,7 @@
   <div class="col-lg-12">
   @include('articulo.search')
   </div>
-
+{{-- se crea una tabla para listar los datos obtenidos del controlador --}}
   <div class="col-lg-12 col-lm-8">
     <div class="card">
       <div class="card-body">

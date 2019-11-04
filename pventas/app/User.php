@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+  //definimos las llavese primarias y los campos de la tabla<?php
+
     use Notifiable;
 
     /**
@@ -15,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+       //se colocara el nombre de cada campo de la tabla tal y como este en la base de datos
     protected $fillable = [
         'name', 'email', 'password','rol',
     ];

@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 @section ('contenido')
 <div class="content-body">
-        
+{{-- lectura y escritura de posibles errores en el sistema --}}
 <div class="row">
 <div class="col-lg-8 col-md-6 col-xs-12">
 <center><h3>Editar articulo</h3></center>
@@ -16,9 +16,10 @@
 </div>
 @endif
 
+{{-- definir metodo y el controlador que estara recibiendo --}}
 {!!Form::model($articulo,['method'=>'PATCH','route'=>['articulo.update',$articulo->idarticulo], 'files'=>'true'])!!}
 {{Form::token()}}
-
+{{-- creamos el formulario que recibira los datos con el tipo correspondiente --}}
 <div class="row">
 
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">

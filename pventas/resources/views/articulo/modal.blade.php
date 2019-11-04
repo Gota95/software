@@ -4,7 +4,7 @@ role="dialog" tabindex="-1" id= "modal-delete-{{$art->idarticulo}}">
 <div class="modal-dialog">
 <div class="modal-content">
 
-
+{{-- se crea un formulario para eliminar algun elemento --}}
 <div class="modal-header">
 
 <h4 class="modal-title"> Eliminar Articulo </h4>

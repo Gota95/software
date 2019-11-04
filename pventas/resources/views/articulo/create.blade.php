@@ -1,11 +1,12 @@
 @extends ('layouts.admin')
 @section ('contenido')
 <div class="content-body">
-        
+
 <div class="row">
 <div class="col-lg-8 col-md-6 col-xs-12">
 <center><h3>Nuevo articulo</h3></center>
 <br>
+{{-- lectura y escritura de posibles errores en el sistema --}}
 @if (count($errors)>0)
 <div class="alert alert-danger">
 <ul>
@@ -16,9 +17,10 @@
 </div>
 @endif
 
+{{-- definir metodo y el controlador que estara recibiendo --}}
 {!!Form::open(array('url'=>'articulo','method'=>'POST', 'autocomplete'=>'off','files'=>'true'))!!}
 {{Form::token()}}
-
+{{-- creamos el formulario que recibira los datos con el tipo correspondiente --}}
 <div class="row">
 
 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
@@ -86,6 +88,7 @@
 </div>
 
 <br>
+{{-- botones de submit y/o cancelar --}}
 <div class="form-group">
 <button class="btn btn-primary" type="submit"> Guardar </button>
 <button class="btn btn-danger" type="reset"> Cancelar </button>

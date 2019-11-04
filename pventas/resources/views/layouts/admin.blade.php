@@ -52,17 +52,28 @@
 
 
                 <div class="header-right">
-                    <ul class="clearfix">
-                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            </a>
-                            <div class="drop-down animated fadeIn dropdown-menu">
-                                <div class="dropdown-content-heading d-flex justify-content-between">
-                                </div>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                  <ul class="navbar-nav navbar-nav-right">
+                  <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                      <button type="button" class="btn btn-outline-danger btn-icon-text">
+                        <i class="ti-user btn-icon-prepend"></i>
+                        {{ Auth::User()->name}}
+                      </button>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                      <a href="{{ route('logout') }}" class="dropdown-item"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <i class="ti-power-off text-primary"></i>
+                      Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
             </div>
         </div>
         <!--**********************************

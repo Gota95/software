@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Ventas</title>
+    {{-- SE DEFINE EL ESTILO DEL FORMULARIO PARA LA VISTA AMIGABLE --}}
   <style>
   table{
     font-family: arial, sans-serif;
@@ -22,7 +23,9 @@
   </style>
 </head>
 <body>
+  {{-- nombre del reporte --}}
   <h1>VENTAS DEL DIA</h1>
+  {{-- creamos la tabla con los diferentes campos de encabezado y el cuerpo que contiene los datos obtenidos anteriormente --}}
     <table>
       <tr>
         <th>Numero Comprobante</th>
