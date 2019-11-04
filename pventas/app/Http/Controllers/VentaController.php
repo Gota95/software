@@ -32,7 +32,7 @@ class VentaController extends Controller
         'ven.fecha_hora','ven.impuesto','ven.total_venta','ven.estado',DB::raw('per.nombre as nombrecliente'))
         ->where('ven.num_comprobante','LIKE','%'.$query.'%')
         ->orderBy('ven.idventa','asc')
-       
+
         ->paginate(7);
 
         return view("venta.index",["ventas"=>$ventas,"searchText"=>$query]);
@@ -47,7 +47,7 @@ class VentaController extends Controller
     public function create()
     {
 
-     
+
       $personas=DB::table('persona')
       ->where('idtipopersona','=','2')->get();
       $articulos=DB::table('articulo as art')
@@ -79,7 +79,7 @@ class VentaController extends Controller
 
         $mytime=Carbon::now('America/Lima');
         $venta->fecha_hora=$mytime->toDateTimeString();
-        $venta->impuesto=$request->get('total_venta')*0.12;
+        $venta->impuesto='0';
         $venta->estado='A';
 
         $venta->save();

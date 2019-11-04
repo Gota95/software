@@ -48,7 +48,7 @@ class IngresoController extends Controller
     {
       $personas=DB::table('persona')
       ->where('idtipopersona','=','1')->get();
-      
+
       $articulos=DB::table('articulo as art')
       ->select(DB::raw('CONCAT(art.codigo,"",art.nombre) AS articulo'),
       'art.idarticulo')
@@ -76,7 +76,7 @@ class IngresoController extends Controller
 
       $mytime=Carbon::now('America/Lima');
       $ingreso->fecha_hora=$mytime->toDateTimeString();
-      $ingreso->impuesto=$request->get('precio_compra')*0.12;
+      $ingreso->impuesto='0';
       $ingreso->estado='A';
 
       $ingreso->save();

@@ -98,7 +98,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
     /* Full height */
     height: 100%;
-
+    widows: 100%;
 
     /* Center and scale the image nicely */
     background-repeat: no-repeat;
