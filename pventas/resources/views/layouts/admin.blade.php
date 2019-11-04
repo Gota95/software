@@ -149,23 +149,14 @@
                     </li>
                     <br>
                     <li class="nav-label">Mas opciones</li>
-                    <li>
-
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-grid  "></i><span class="nav-text">Estadisticas</span>
-                        </a>
-                        <ul aria-expanded="false">
-                          <li> <a href="/ventadia">Más Vendidos</a></li>
-                          <li> <a href="/ventadia">Ganacias</a></li>
-                        </ul>
-                        </li>
+                   
                         <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="icon-docs"></i><span class="nav-text">Reportes</span>
                         </a>
                         <ul aria-expanded="false">
-                          <li> <a href="{{ route('imprimir') }}">Ventas Dia</a></li>
-                          <li> <a href="{{route('productos')}}">Productos</a></li>
+                          <li> <a href="{{ route('imprimir') }}">Ventas del Dia</a></li>
+                          <li> <a href="{{route('productos')}}">Productos en Existencia</a></li>
                         </ul>
                         </li>
                         <li>
