@@ -9,17 +9,17 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- Styles -->
-
+      <link href="{{asset('css/style.css')}}" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg2">
 
 
       <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-          <a class="navbar-brand" href="#">Sistema Ventas</a>
+          <h3><a class="navbar-brand text-white" href="#">Sistema Ventas</a></h3>
 
-              <a href="{{'/home'}}" style="text-decoration-line: none"><i calss="icon-user text-primary">
-              </i> Iniciar Sesión</a>
+              <h3><a href="{{'/home'}}" style="text-decoration-line: none" class="text-white"><i calss="icon-user text-primary">
+              </i> Iniciar Sesión</a></h3>
         </div>
       </nav>
     </body>

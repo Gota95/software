@@ -18,8 +18,16 @@
 
     <!-- Styles -->
     <link href="{{asset('css/app.css') }}" rel="stylesheet">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="6x6" href="{{asset('images/favicon.png')}}">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{asset('plugins/highlightjs/styles/darkula.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
-<body>
+<body class="bg">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
